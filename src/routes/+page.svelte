@@ -5,6 +5,7 @@
   let mobileMenuOpen = false;
   let mounted = false;
   let activeFaq = null;
+  let darkMode = true;
 
   const plans = [
     {
@@ -176,6 +177,16 @@
     activeFaq = activeFaq === index ? null : index;
   }
 
+  function applyTheme() {
+    document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+  }
+
+  function toggleTheme() {
+    darkMode = !darkMode;
+    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+    applyTheme();
+  }
+
   function reveal(node) {
     return { destroy() {} };
   }
@@ -183,13 +194,17 @@
   // Simulated live form-fill demo data
   let demoStep = 0;
   const demoFields = [
-    { label: 'Company', value: 'Apex Digital Marketing' },
-    { label: 'Name', value: 'Contact Storm AI' },
-    { label: 'Email', value: 'leads@yourbusiness.com' },
-    { label: 'Message', value: 'Hi, I specialize in web development and would love to discuss how I can help grow your online presence...' }
+    { label: 'Company', value: 'IsoBeam Laserworks' },
+    { label: 'Name', value: 'Jonathan Cruz' },
+    { label: 'Email', value: 'jonathan@isobeamlaserwork.com' },
+    { label: 'Message', value: 'Hi, we are manufacturers of carbon laser engraving and cutting machines...' }
   ];
 
   onMount(() => {
+    const saved = localStorage.getItem('theme');
+    darkMode = saved ? saved === 'dark' : true;
+    applyTheme();
+
     const interval = setInterval(() => {
       demoStep = (demoStep + 1) % (demoFields.length + 2);
     }, 1800);
@@ -231,10 +246,24 @@
     </div>
 
     <div class="nav-actions">
+      <button class="theme-toggle" on:click={toggleTheme} aria-label="Toggle theme">
+        {#if darkMode}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        {:else}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        {/if}
+      </button>
       <a href="#" class="btn-ghost">Log In</a>
       <a href="#" class="btn-primary-sm">Get Started</a>
     </div>
 
+    <button class="theme-toggle mobile-theme" on:click={toggleTheme} aria-label="Toggle theme">
+      {#if darkMode}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      {:else}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      {/if}
+    </button>
     <button class="mobile-toggle" on:click={() => mobileMenuOpen = !mobileMenuOpen} aria-label="Toggle menu">
       <span class="hamburger" class:open={mobileMenuOpen}>
         <span></span><span></span><span></span>
@@ -359,8 +388,8 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
       </div>
       <div class="fc-content">
-        <span class="fc-label">Success Rate</span>
-        <span class="fc-value">94.2%</span>
+        <span class="fc-label">Delivery Rate</span>
+        <span class="fc-value">100%</span>
       </div>
     </div>
   </div>
@@ -685,7 +714,7 @@
     transition: all 0.3s ease;
   }
   .nav.scrolled {
-    background: rgba(10, 10, 15, 0.85);
+    background: var(--nav-scrolled-bg);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--dark-border);
     padding: 0.75rem 2rem;
@@ -753,6 +782,25 @@
     background: var(--brand-dark);
     transform: translateY(-1px);
   }
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--overlay-medium);
+    border: 1px solid var(--dark-border);
+    color: var(--text-secondary);
+    transition: all 0.25s;
+    cursor: pointer;
+  }
+  .theme-toggle:hover {
+    background: var(--overlay-strong);
+    color: var(--text-primary);
+  }
+  .theme-toggle svg { width: 18px; height: 18px; }
+  .mobile-theme { display: none; }
   .mobile-toggle {
     display: none;
     background: none;
@@ -794,8 +842,8 @@
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      linear-gradient(var(--hero-grid-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--hero-grid-color) 1px, transparent 1px);
     background-size: 60px 60px;
     mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 70%);
   }
@@ -806,7 +854,7 @@
     transform: translateX(-50%);
     width: 800px;
     height: 600px;
-    background: radial-gradient(ellipse, var(--brand-glow) 0%, transparent 70%);
+    background: radial-gradient(ellipse, var(--hero-glow-color) 0%, transparent 70%);
   }
   .hero-glow-2 {
     position: absolute;
@@ -814,7 +862,7 @@
     right: -10%;
     width: 400px;
     height: 400px;
-    background: radial-gradient(ellipse, rgba(0, 198, 255, 0.08) 0%, transparent 70%);
+    background: radial-gradient(ellipse, var(--hero-glow-2-color) 0%, transparent 70%);
   }
   .hero-content {
     position: relative;
@@ -903,7 +951,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(255,255,255,0.06);
+    background: var(--overlay-medium);
     border: 1px solid var(--dark-border);
     color: var(--text-primary);
     font-weight: 600;
@@ -913,8 +961,8 @@
     transition: all 0.25s;
   }
   .btn-secondary:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: rgba(255,255,255,0.15);
+    background: var(--overlay-strong);
+    border-color: var(--overlay-hover);
     transform: translateY(-2px);
   }
   .btn-lg { padding: 1rem 2rem; font-size: 1.05rem; }
@@ -956,14 +1004,14 @@
     border: 1px solid var(--dark-border);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 122, 255, 0.08);
+    box-shadow: var(--shadow-heavy);
   }
   .browser-header {
     display: flex;
     align-items: center;
     gap: 1rem;
     padding: 0.75rem 1rem;
-    background: rgba(255,255,255,0.03);
+    background: var(--overlay-subtle);
     border-bottom: 1px solid var(--dark-border);
   }
   .browser-dots {
@@ -983,7 +1031,7 @@
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    background: rgba(255,255,255,0.05);
+    background: var(--overlay-light);
     padding: 0.35rem 0.75rem;
     border-radius: 6px;
     font-size: 0.78rem;
@@ -1033,7 +1081,7 @@
     letter-spacing: 0.04em;
   }
   .demo-input {
-    background: rgba(255,255,255,0.04);
+    background: var(--overlay-light);
     border: 1px solid var(--dark-border);
     border-radius: 6px;
     padding: 0.6rem 0.75rem;
@@ -1056,12 +1104,12 @@
     display: block;
     height: 14px;
     width: 60%;
-    background: rgba(255,255,255,0.04);
+    background: var(--overlay-light);
     border-radius: 3px;
   }
   .demo-submit {
     margin-top: 1rem;
-    background: rgba(255,255,255,0.06);
+    background: var(--overlay-medium);
     color: var(--text-muted);
     text-align: center;
     padding: 0.65rem;
@@ -1111,7 +1159,7 @@
     border: 1px solid var(--dark-border);
     padding: 0.75rem 1rem;
     border-radius: 10px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--shadow-float);
     animation: float 6s ease-in-out infinite;
   }
   .card-leads {
@@ -1135,7 +1183,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    background: rgba(255,255,255,0.05);
+    background: var(--overlay-light);
   }
   .fc-icon svg { width: 20px; height: 20px; }
   .fc-content { display: flex; flex-direction: column; }
@@ -1215,16 +1263,17 @@
   .step-card {
     position: relative;
     padding: 2rem;
-    background: var(--gradient-card);
+    background: var(--dark-card);
     border: 1px solid var(--dark-border);
     border-radius: 16px;
     transition: all 0.3s;
     animation-delay: var(--delay);
+    box-shadow: var(--shadow-card);
   }
   .step-card:hover {
     border-color: rgba(0, 122, 255, 0.2);
     transform: translateY(-4px);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-medium);
   }
   .step-num {
     font-family: var(--font-display);
@@ -1289,6 +1338,7 @@
     max-width: 320px;
     position: relative;
     overflow: hidden;
+    box-shadow: var(--shadow-card);
   }
   .delivery-card::before {
     content: '';
@@ -1368,11 +1418,12 @@
     border-radius: 14px;
     transition: all 0.3s;
     animation-delay: var(--delay);
+    box-shadow: var(--shadow-card);
   }
   .feature-card:hover {
     border-color: rgba(0, 122, 255, 0.15);
     transform: translateY(-4px);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-medium);
   }
   .feature-icon {
     width: 44px;
@@ -1437,10 +1488,11 @@
     border-radius: 10px;
     overflow: hidden;
     transition: all 0.3s;
+    box-shadow: var(--shadow-card);
   }
   .mini-browser:hover {
     border-color: rgba(0, 122, 255, 0.2);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-medium);
   }
   .mini-header {
     display: flex;
@@ -1448,7 +1500,7 @@
     justify-content: space-between;
     padding: 0.5rem 0.75rem;
     border-bottom: 1px solid var(--dark-border);
-    background: rgba(255,255,255,0.02);
+    background: var(--overlay-subtle);
   }
   .mini-dots {
     display: flex;
@@ -1458,7 +1510,7 @@
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.15);
+    background: var(--overlay-hover);
   }
   .mini-live {
     font-size: 0.68rem;
@@ -1471,7 +1523,7 @@
   .mini-body { padding: 0.85rem; display: flex; flex-direction: column; gap: 0.5rem; }
   .mini-form-line {
     height: 8px;
-    background: linear-gradient(90deg, var(--brand-glow-strong), rgba(0, 122, 255, 0.05));
+    background: linear-gradient(90deg, var(--brand-glow-strong), var(--brand-glow));
     border-radius: 4px;
     animation: shimmer 2s ease-in-out infinite;
   }
@@ -1505,10 +1557,11 @@
     border-radius: 16px;
     transition: all 0.3s;
     animation-delay: var(--delay);
+    box-shadow: var(--shadow-card);
   }
   .pricing-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-medium);
   }
   .pricing-card.highlighted {
     border-color: var(--brand);
@@ -1527,7 +1580,7 @@
     letter-spacing: 0.08em;
     padding: 0.3rem 0.75rem;
     border-radius: 100px;
-    background: rgba(255,255,255,0.06);
+    background: var(--overlay-medium);
     color: var(--text-muted);
     margin-bottom: 1rem;
   }
@@ -1608,13 +1661,13 @@
     border-radius: 10px;
     font-weight: 600;
     font-size: 0.9rem;
-    background: rgba(255,255,255,0.06);
+    background: var(--overlay-medium);
     border: 1px solid var(--dark-border);
     color: var(--text-primary);
     transition: all 0.25s;
   }
   .pricing-cta:hover {
-    background: rgba(255,255,255,0.1);
+    background: var(--overlay-strong);
     transform: translateY(-1px);
   }
   .pricing-cta.primary {
@@ -1641,8 +1694,9 @@
     overflow: hidden;
     transition: all 0.3s;
     animation-delay: var(--delay);
+    box-shadow: var(--shadow-card);
   }
-  .faq-item:hover { border-color: rgba(255,255,255,0.12); }
+  .faq-item:hover { border-color: var(--overlay-hover); }
   .faq-item.open { border-color: rgba(0, 122, 255, 0.2); }
   .faq-question {
     width: 100%;
@@ -1810,6 +1864,7 @@
     .nav-links.open { display: flex; }
     .nav-links a { font-size: 1.25rem; }
     .nav-actions { display: none; }
+    .mobile-theme { display: flex; z-index: 101; }
     .mobile-toggle { display: block; }
     .hero { padding: 7rem 1.25rem 3rem; }
     .hero-stats { gap: 1.25rem; }

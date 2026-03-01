@@ -1,9 +1,41 @@
 :root {
+  /* Brand (shared across themes) */
   --brand: #007aff;
   --brand-dark: #0056cc;
   --brand-light: #4da3ff;
-  --brand-glow: rgba(0, 122, 255, 0.15);
-  --brand-glow-strong: rgba(0, 122, 255, 0.3);
+  --brand-glow: rgba(0, 122, 255, 0.12);
+  --brand-glow-strong: rgba(0, 122, 255, 0.25);
+  --gradient-brand: linear-gradient(135deg, #007aff 0%, #00c6ff 100%);
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Light mode (default) */
+  --dark: #f8f9fb;
+  --dark-card: #ffffff;
+  --dark-border: rgba(0, 0, 0, 0.08);
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #9ca3af;
+  --surface: #f1f5f9;
+  --surface-hover: #e2e8f0;
+  --gradient-card: linear-gradient(135deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.01) 100%);
+
+  --nav-scrolled-bg: rgba(255, 255, 255, 0.85);
+  --overlay-subtle: rgba(0, 0, 0, 0.02);
+  --overlay-light: rgba(0, 0, 0, 0.04);
+  --overlay-medium: rgba(0, 0, 0, 0.05);
+  --overlay-strong: rgba(0, 0, 0, 0.08);
+  --overlay-hover: rgba(0, 0, 0, 0.12);
+  --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.08), 0 0 40px rgba(0, 122, 255, 0.04);
+  --shadow-medium: 0 10px 40px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-float: 0 8px 30px rgba(0, 0, 0, 0.1);
+  --hero-grid-color: rgba(0, 0, 0, 0.04);
+  --hero-glow-color: rgba(0, 122, 255, 0.06);
+  --hero-glow-2-color: rgba(0, 198, 255, 0.04);
+}
+
+[data-theme="dark"] {
   --dark: #0a0a0f;
   --dark-card: #12121a;
   --dark-border: rgba(255, 255, 255, 0.08);
@@ -12,10 +44,23 @@
   --text-muted: rgba(255, 255, 255, 0.4);
   --surface: #16161f;
   --surface-hover: #1e1e2a;
-  --gradient-brand: linear-gradient(135deg, #007aff 0%, #00c6ff 100%);
   --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-  --font-display: "Space Grotesk", sans-serif;
-  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --brand-glow: rgba(0, 122, 255, 0.15);
+  --brand-glow-strong: rgba(0, 122, 255, 0.3);
+
+  --nav-scrolled-bg: rgba(10, 10, 15, 0.85);
+  --overlay-subtle: rgba(255, 255, 255, 0.02);
+  --overlay-light: rgba(255, 255, 255, 0.04);
+  --overlay-medium: rgba(255, 255, 255, 0.06);
+  --overlay-strong: rgba(255, 255, 255, 0.1);
+  --overlay-hover: rgba(255, 255, 255, 0.15);
+  --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 122, 255, 0.08);
+  --shadow-medium: 0 10px 40px rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-float: 0 8px 30px rgba(0, 0, 0, 0.4);
+  --hero-grid-color: rgba(255, 255, 255, 0.03);
+  --hero-glow-color: rgba(0, 122, 255, 0.15);
+  --hero-glow-2-color: rgba(0, 198, 255, 0.08);
 }
 
 * {
