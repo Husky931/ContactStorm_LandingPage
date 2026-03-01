@@ -92,17 +92,17 @@
     {
       num: '01',
       title: 'Create Your Lead Profile',
-      desc: 'Tell us about your business, your ideal customers, and what services you offer. Our AI uses this to find perfect matches.'
+      desc: 'Tell us about your business, your ideal customers, and what services you offer. Our AI uses this to give you the best possible leads.'
     },
     {
       num: '02',
       title: 'AI Finds Your Targets',
-      desc: 'Our intelligent engine scans thousands of business domains to find companies that need exactly what you offer.'
+      desc: 'Our intelligent engine scans thousands of business domains, marketplaces, business directories, and more to find companies that fit your lead profile.'
     },
     {
       num: '03',
-      title: 'Watch Leads Roll In',
-      desc: 'Sit back and watch in real-time as our bots contact businesses for you. Track every submission, message, and response live.'
+      title: 'Watch Leads Roll In with Real-Time Live Viewing',
+      desc: 'Sit back and watch in real-time as our bots contact businesses for you. Track every submission, message, and response live. Everything is out in the open for you to see.'
     }
   ];
 
@@ -146,7 +146,7 @@
     },
     {
       q: 'Can I watch the bots in real-time?',
-      a: 'Yes! This is one of our standout features. Depending on your plan, you get 1-3 live viewing windows where you can watch your AI bots filling out contact forms as they happen. It\'s like having a virtual sales team you can observe.'
+      a: 'Yes! This is one of our standout features. Depending on your plan, you get 1-4 live viewing windows where you can watch your personal army filling out contact forms as they happen. It\'s like having a virtual sales team you can observe.'
     },
     {
       q: 'What are messaging templates?',
@@ -374,7 +374,7 @@
     <div class="section-header animate-in" use:reveal>
       <span class="section-tag">How It Works</span>
       <h2 class="section-title">Three Steps to <span class="gradient-text">Automated Leads</span></h2>
-      <p class="section-desc">No cold calling. No manual outreach. Just set up your profile and let AI do the heavy lifting.</p>
+      <p class="section-desc">No cold calling. No manual outreach. Just set up your profile and let Contact Storm do the work for you.</p>
     </div>
 
     <div class="steps-grid">
@@ -419,7 +419,7 @@
     <div class="showcase-layout">
       <div class="showcase-text animate-in" use:reveal>
         <span class="section-tag">Real-Time Viewing</span>
-        <h2 class="section-title">Watch Your AI Army<br/><span class="gradient-text">In Action</span></h2>
+        <h2 class="section-title">Watch Your Army<br/><span class="gradient-text">In Action</span></h2>
         <p class="showcase-desc">
           Unlike any other lead generation tool, Contact Storm gives you a live window 
           into every form submission. Watch as your bots navigate to businesses, fill out 
@@ -551,7 +551,7 @@
     <div class="cta-card animate-in" use:reveal>
       <div class="cta-glow"></div>
       <h2>Ready to Unleash the Storm?</h2>
-      <p>Start generating leads on autopilot today. No credit card required to get started.</p>
+      <p>Start generating leads on autopilot today. No credit card required to get started. 20 Free credits on us to get you started.</p>
       <div class="cta-buttons">
         <a href="#" class="btn-primary btn-lg">
           Get Started Free
