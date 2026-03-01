@@ -335,7 +335,7 @@
         </div>
         <div class="browser-url">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" class="lock-icon"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5 7V5a3 3 0 016 0v2"/></svg>
-          apexdigitalmarketing.com/contact
+          targetcustomer.com/contact-us
         </div>
         <div class="live-badge">
           <span class="live-dot"></span>
