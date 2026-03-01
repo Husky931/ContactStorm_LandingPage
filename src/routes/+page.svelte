@@ -108,7 +108,7 @@
     {
       num: '02',
       title: 'AI Finds Your Targets',
-      desc: 'Our intelligent engine scans thousands of business domains, marketplaces, business directories, and more to find companies that fit your lead profile.'
+      desc: 'Our intelligent engine scans thousands of business domains, marketplaces, business directories, and more to find companies that fit your lead profile. Important - we can target geo specific locations, if you want to target customers from certain areas. '
     },
     {
       num: '03',
@@ -292,7 +292,7 @@
     </h1>
 
     <p class="hero-subtitle animate-in" use:reveal>
-      Create your customer target lead profile, and let our AI match you with the best target businesses from any specific location in the world. Then craft personalized messages, 
+      Create your customer target lead profile, and let our AI match you with target businesses from any specific location in the world. Then craft personalized messages, 
       and our army will contact the businesses for you. You watch it all happen in real-time.
     </p>
 
@@ -519,7 +519,7 @@
           </li>
           <li>
             <svg viewBox="0 0 20 20" fill="var(--brand)"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
-            Up to 3 live viewing windows
+            Up to 4 live viewing windows
           </li>
           <li>
             <svg viewBox="0 0 20 20" fill="var(--brand)"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
@@ -673,26 +673,21 @@
         </a>
         <p class="footer-tagline">AI-powered lead generation on autopilot.</p>
       </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Product</h4>
-          <a href="#features">Features</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#how-it-works">How It Works</a>
-          <a href="#faq">FAQ</a>
-        </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <a href="#">About</a>
-          <a href="#">Blog</a>
-          <a href="#">Careers</a>
-          <a href="#">Contact</a>
-        </div>
-        <div class="footer-col">
-          <h4>Legal</h4>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Cookie Policy</a>
+      <div class="footer-links-wrapper">
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#faq">FAQ</a>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
         </div>
       </div>
     </div>
@@ -1781,11 +1776,16 @@
   }
   .footer-top {
     display: flex;
-    justify-content: space-between;
+    align-items: flex-start;
     gap: 3rem;
     margin-bottom: 3rem;
   }
   .footer-brand { max-width: 280px; }
+  .footer-links-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
   .footer-tagline {
     color: var(--text-muted);
     font-size: 0.88rem;
@@ -1794,6 +1794,7 @@
   }
   .footer-links {
     display: flex;
+    justify-content: center;
     gap: 4rem;
   }
   .footer-col {
@@ -1874,7 +1875,7 @@
     .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
     .pricing-card.highlighted { transform: none; }
     .pricing-card.highlighted:hover { transform: translateY(-4px); }
-    .footer-top { flex-direction: column; }
+    .footer-top { flex-direction: column; align-items: center; text-align: center; }
     .footer-links { gap: 2rem; }
     .floating-card { display: none; }
     .section { padding: 4rem 1.25rem; }
