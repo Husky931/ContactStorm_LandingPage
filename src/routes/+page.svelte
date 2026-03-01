@@ -87,6 +87,7 @@
         '4 live viewing windows',
         "Unlimited Lead Profiles",
         'Unlimited messaging templates',
+        "Download all target business contacts (email, phone, whatsapp, etc.) as a CSV file",
         'Real-time tracking',
         'Dedicated support',
         'Full analytics suite',
@@ -262,8 +263,8 @@
     </h1>
 
     <p class="hero-subtitle animate-in" use:reveal>
-      Create your profile, and let our AI find businesses, craft personalized messages, 
-      and fill out contact forms for you. Watch it all happen in real-time.
+      Create your customer target lead profile, and let our AI match you with the best target businesses from any specific location in the world. Then craft personalized messages, 
+      and our army will contact the businesses for you. You watch it all happen in real-time.
     </p>
 
     <div class="hero-ctas animate-in" use:reveal>
@@ -382,7 +383,7 @@
   <div class="container">
     <div class="section-header animate-in" use:reveal>
       <span class="section-tag">How It Works</span>
-      <h2 class="section-title">Three Steps to <span class="gradient-text">Automated Leads</span></h2>
+      <h2 class="section-title section-title-lg">Three Steps to <span class="gradient-text">Automated Leads</span></h2>
       <p class="section-desc">No cold calling. No manual outreach. Just set up your profile and let Contact Storm do the work for you.</p>
     </div>
 
@@ -395,6 +396,54 @@
           <p>{step.desc}</p>
         </div>
       {/each}
+    </div>
+  </div>
+</section>
+
+<!-- WHY IT WORKS -->
+<section class="section why-section">
+  <div class="container">
+    <div class="why-layout animate-in" use:reveal>
+      <div class="why-content">
+        <span class="section-tag">Why It Works</span>
+        <h2 class="section-title section-title-lg">Every Message Lands.<br/><span class="gradient-text">Guaranteed.</span></h2>
+        <p class="why-text">
+          Unlike email outreach that ends up in spam folders, Contact Storm delivers your message 
+          <strong>directly through business contact forms</strong> — meaning 100% delivery, every single time. 
+          No spam filters. No junk folders. Your message lands right where it matters.
+        </p>
+        <p class="why-text">
+          Whether they respond depends on your offer and their interest in doing business with you. 
+          But our job? <strong>Getting your message in front of them.</strong> That part is done — successfully, every time.
+        </p>
+      </div>
+      <div class="why-visual">
+        <div class="delivery-card">
+          <div class="delivery-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+          <div class="delivery-stat">100%</div>
+          <div class="delivery-label">Delivery Rate</div>
+          <div class="delivery-sub">via contact forms, not email</div>
+        </div>
+        <div class="delivery-pills">
+          <div class="pill pill-green">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.7 5.7l-4 4a1 1 0 01-1.4 0l-2-2a1 1 0 011.4-1.4L7 8.58l3.3-3.3a1 1 0 011.4 1.42z"/></svg>
+            No Spam Filters
+          </div>
+          <div class="pill pill-green">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.7 5.7l-4 4a1 1 0 01-1.4 0l-2-2a1 1 0 011.4-1.4L7 8.58l3.3-3.3a1 1 0 011.4 1.42z"/></svg>
+            No Junk Folder
+          </div>
+          <div class="pill pill-green">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.7 5.7l-4 4a1 1 0 01-1.4 0l-2-2a1 1 0 011.4-1.4L7 8.58l3.3-3.3a1 1 0 011.4 1.42z"/></svg>
+            Direct to Inbox
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1146,6 +1195,9 @@
     line-height: 1.15;
     margin-bottom: 1rem;
   }
+  .section-title-lg {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+  }
   .section-desc {
     font-size: 1.05rem;
     color: var(--text-secondary);
@@ -1196,6 +1248,111 @@
     line-height: 1.6;
   }
   .step-line { display: none; }
+
+  /* ========== WHY IT WORKS ========== */
+  .why-section {
+    background: var(--surface);
+    border-top: 1px solid var(--dark-border);
+    border-bottom: 1px solid var(--dark-border);
+  }
+  .why-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .why-content .section-tag { margin-bottom: 0.75rem; }
+  .why-content .section-title { text-align: left; margin-bottom: 1.5rem; }
+  .why-text {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+  .why-text strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+  .why-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .delivery-card {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 320px;
+    position: relative;
+    overflow: hidden;
+  }
+  .delivery-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-brand);
+  }
+  .delivery-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 12px;
+    color: #10B981;
+  }
+  .delivery-icon svg { width: 26px; height: 26px; }
+  .delivery-stat {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .delivery-label {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+  }
+  .delivery-sub {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  .delivery-pills {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .pill {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.85rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .pill svg { width: 14px; height: 14px; }
+  .pill-green {
+    background: rgba(16, 185, 129, 0.1);
+    color: #34D399;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+  }
 
   /* ========== FEATURES ========== */
   .features-section { background: var(--surface); }
@@ -1622,6 +1779,12 @@
     .features-grid {
       grid-template-columns: repeat(2, 1fr);
     }
+    .why-layout {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .why-content .section-title { text-align: center; }
+    .why-content { text-align: center; }
     .showcase-layout {
       grid-template-columns: 1fr;
       gap: 3rem;
