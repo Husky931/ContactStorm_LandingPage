@@ -993,6 +993,7 @@
     width: 100%;
     max-width: 700px;
     margin: 4rem auto 0;
+    contain: layout style;
   }
   .demo-browser {
     background: var(--dark-card);
@@ -1064,7 +1065,7 @@
   }
   .demo-field {
     margin-bottom: 0.85rem;
-    transition: all 0.3s;
+    transition: opacity 0.3s;
   }
   .demo-field label {
     display: block;
@@ -1080,9 +1081,12 @@
     border: 1px solid var(--dark-border);
     border-radius: 6px;
     padding: 0.6rem 0.75rem;
-    min-height: 38px;
+    height: 38px;
     font-size: 0.85rem;
-    transition: all 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
   .demo-field.active .demo-input {
     border-color: var(--brand);
@@ -1091,13 +1095,13 @@
   .demo-field.filled .demo-input {
     border-color: rgba(40, 200, 64, 0.3);
   }
-  .typed-text { color: var(--text-primary); }
-  .typing-text { color: var(--brand-light); }
+  .typed-text { color: var(--text-primary); display: inline-block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+  .typing-text { color: var(--brand-light); display: inline-block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
   .cursor-blink { animation: blink 0.8s step-end infinite; color: var(--brand); }
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
   .placeholder-text {
     display: block;
-    height: 14px;
+    height: 1em;
     width: 60%;
     background: var(--overlay-light);
     border-radius: 3px;
@@ -1111,7 +1115,8 @@
     border-radius: 8px;
     font-weight: 600;
     font-size: 0.85rem;
-    transition: all 0.4s;
+    height: 38px;
+    transition: background 0.4s, color 0.4s, box-shadow 0.4s;
   }
   .demo-submit.ready {
     background: var(--brand);
