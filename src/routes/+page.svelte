@@ -400,7 +400,7 @@
   <div class="container">
     <p class="trust-label animate-in" use:reveal>Trusted by growing businesses worldwide</p>
     <div class="trust-logos animate-in" use:reveal>
-      {#each ['SaaS Co', 'GrowthLab', 'LeadPro', 'ScaleUp', 'FunnelHQ'] as company}
+      {#each ['Hilliby', 'Shaoyang Yuantong', 'Kenetai-Agro', 'Tansar Capital', 'NGDEM Global Ltd'] as company}
         <div class="trust-logo">{company}</div>
       {/each}
     </div>
