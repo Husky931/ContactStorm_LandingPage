@@ -14,9 +14,13 @@
       features: [
         'No commitment',
         'Pay per submission',
-        'Basic analytics',
         'Email support',
-        '1 messaging template'
+        "1 AI bot running",
+        '1 messaging template',
+        "1 live viewing window",
+        '3 Lead Profiles',
+        "Real-time tracking",
+        'Basic analytics'
       ],
       cta: 'Get Started',
       highlighted: false
@@ -36,8 +40,10 @@
         '1 AI bot running',
         '1 live viewing window',
         '3 messaging templates',
+        '5 Lead Profiles',
         'Real-time tracking',
-        'Email notifications'
+        'Email notifications',
+        'Advanced analytics'
       ],
       cta: 'Start Mini Storm',
       highlighted: false
@@ -57,6 +63,7 @@
         '2 AI bots running',
         '2 live viewing windows',
         '10 messaging templates',
+        '10 Lead Profiles',
         'Real-time tracking',
         'Priority support',
         'Advanced analytics'
@@ -77,11 +84,13 @@
         '700 submissions per week',
         '100 submissions per day',
         '4 AI bots simultaneously',
-        '3 live viewing windows',
-        'Unlimited templates',
+        '4 live viewing windows',
+        "Unlimited Lead Profiles",
+        'Unlimited messaging templates',
         'Real-time tracking',
         'Dedicated support',
-        'Full analytics suite'
+        'Full analytics suite',
+        'Priority support'
       ],
       cta: 'Start Contact Storm',
       highlighted: false
