@@ -292,7 +292,7 @@
     </h1>
 
     <p class="hero-subtitle animate-in" use:reveal>
-      Create your customer target lead profile, and let our AI match you with target businesses from any specific location in the world. Then craft personalized messages, 
+      Create your target customer lead profile, and let our AI match you with target businesses from any specific location in the world. Then craft personalized messages, 
       and our army will contact the businesses for you. You watch it all happen in real-time.
     </p>
 
