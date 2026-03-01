@@ -1,0 +1,71 @@
+:root {
+  --brand: #007aff;
+  --brand-dark: #0056cc;
+  --brand-light: #4da3ff;
+  --brand-glow: rgba(0, 122, 255, 0.15);
+  --brand-glow-strong: rgba(0, 122, 255, 0.3);
+  --dark: #0a0a0f;
+  --dark-card: #12121a;
+  --dark-border: rgba(255, 255, 255, 0.08);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.65);
+  --text-muted: rgba(255, 255, 255, 0.4);
+  --surface: #16161f;
+  --surface-hover: #1e1e2a;
+  --gradient-brand: linear-gradient(135deg, #007aff 0%, #00c6ff 100%);
+  --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeInUp 0.7s ease-out both;
+  animation-delay: var(--delay, 0s);
+}
